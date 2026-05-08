@@ -1,87 +1,99 @@
-@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
-  --font-sans: var(--font-sans);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glass-card {
+    @apply bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+  }
+  .glow-text-primary {
+    text-shadow: 0 0 20px oklch(0.6 0.2 320 / 50%); /* Cyberpunk pink/purple glow */
+  }
 }
 
 @layer base {
+  .theme {
+    --font-heading: var(--font-sans);
+    --font-sans: var(--font-sans);
+  }
+  
   :root {
-    --background: oklch(0.14 0.04 285);
-    --foreground: oklch(0.98 0 0);
-    --card: oklch(0.18 0.05 285);
+    /* We only care about dark mode for this premium portfolio */
+    --background: oklch(0.12 0.02 285); /* Deep obsidian blue/black */
+    --foreground: oklch(0.98 0 0); /* Pure white text */
+    
+    --card: oklch(0.15 0.03 285);
     --card-foreground: oklch(0.98 0 0);
-    --popover: oklch(0.18 0.05 285);
+    
+    --popover: oklch(0.15 0.03 285);
     --popover-foreground: oklch(0.98 0 0);
-    --primary: oklch(0.85 0.15 320);
-    --primary-foreground: oklch(0.14 0.04 285);
-    --secondary: oklch(0.25 0.08 285);
+    
+    --primary: oklch(0.65 0.25 320); /* Neon Magenta/Purple */
+    --primary-foreground: oklch(0.98 0 0);
+    
+    --secondary: oklch(0.25 0.05 285);
     --secondary-foreground: oklch(0.98 0 0);
-    --muted: oklch(0.25 0.08 285);
-    --muted-foreground: oklch(0.7 0.02 285);
-    --accent: oklch(0.25 0.08 285);
+    
+    --muted: oklch(0.20 0.03 285);
+    --muted-foreground: oklch(0.7 0 0);
+    
+    --accent: oklch(0.25 0.05 285);
     --accent-foreground: oklch(0.98 0 0);
+    
     --destructive: oklch(0.6 0.2 20);
-    --destructive-foreground: oklch(0.98 0 0);
-    --border: oklch(0.25 0.08 285);
-    --input: oklch(0.25 0.08 285);
-    --ring: oklch(0.85 0.15 320);
-    --chart-1: oklch(0.64 0.19 320);
-    --chart-2: oklch(0.55 0.18 160);
-    --chart-3: oklch(0.45 0.15 220);
-    --chart-4: oklch(0.75 0.15 80);
-    --chart-5: oklch(0.65 0.15 40);
+    --border: oklch(0.25 0.03 285);
+    --input: oklch(0.25 0.03 285);
+    --ring: oklch(0.65 0.25 320);
     --radius: 0.75rem;
   }
-}
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+  .dark {
+    --background: oklch(0.10 0.02 285); /* Ultra dark background */
+    --foreground: oklch(0.98 0 0);
+    
+    --card: oklch(0.14 0.03 285);
+    --card-foreground: oklch(0.98 0 0);
+    
+    --popover: oklch(0.14 0.03 285);
+    --popover-foreground: oklch(0.98 0 0);
+    
+    --primary: oklch(0.65 0.25 320); /* Cyberpunk pink */
+    --primary-foreground: oklch(0.98 0 0);
+    
+    --secondary: oklch(0.2 0.05 285);
+    --secondary-foreground: oklch(0.98 0 0);
+    
+    --muted: oklch(0.18 0.03 285);
+    --muted-foreground: oklch(0.65 0.01 285);
+    
+    --accent: oklch(0.2 0.05 285);
+    --accent-foreground: oklch(0.98 0 0);
+    
+    --destructive: oklch(0.6 0.2 20);
+    --border: oklch(0.22 0.03 285);
+    --input: oklch(0.22 0.03 285);
+    --ring: oklch(0.65 0.25 320);
   }
+
+  * {
+    @apply border-border;
+  }
+  
   body {
     @apply bg-background text-foreground;
-    background: radial-gradient(circle at top right, #34125b 0%, #150d24 50%, #0d0914 100%);
+    /* Premium subtle radial gradient for the background */
+    background: radial-gradient(circle at top right, oklch(0.2 0.05 320 / 30%) 0%, transparent 40%),
+                radial-gradient(circle at bottom left, oklch(0.15 0.05 285 / 50%) 0%, transparent 40%);
+    background-color: oklch(0.10 0.02 285);
     background-attachment: fixed;
   }
-}
-
-.glow-text {
-  text-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
-}
-
-.glow-card {
-  box-shadow: 0 0 30px rgba(236, 72, 153, 0.1);
+  
+  html {
+    @apply font-sans;
+  }
 }

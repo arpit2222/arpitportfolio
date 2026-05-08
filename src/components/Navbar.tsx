@@ -1,21 +1,53 @@
-import Link from 'next/link';
+"use client";
+
+import { motion } from "framer-motion";
+import { Code2, Github, Linkedin, Mail, Twitter } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 w-full z-50 border-b border-white/5 bg-background/50 backdrop-blur-md">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          {/* Logo container with the purple shape icon */}
-          <div className="relative flex items-center justify-center w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-500 rounded-lg rotate-3 glow-card">
-            <span className="text-white font-bold text-xl -rotate-3">DXH</span>
-          </div>
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "glass-card py-4" : "bg-transparent py-6"
+      }`}
+    >
+      <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-2 group">
+          <Code2 className="text-primary w-8 h-8 group-hover:rotate-12 transition-transform" />
+          <span className="font-bold text-xl tracking-tighter">Arpit.dev</span>
         </Link>
-        <div className="hidden md:flex gap-8 items-center font-semibold text-sm tracking-widest text-white/80">
-          <Link href="/" className="hover:text-white transition-colors">HOME</Link>
-          <Link href="/blog" className="hover:text-white transition-colors">BLOG</Link>
-          <Link href="/contact" className="hover:text-white transition-colors">CONTACT</Link>
+        
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
+          <Link href="#experience" className="hover:text-primary transition-colors">Experience</Link>
+          <Link href="#projects" className="hover:text-primary transition-colors">Projects</Link>
+          <Link href="#skills" className="hover:text-primary transition-colors">Skills</Link>
+        </nav>
+
+        <div className="flex items-center gap-4">
+          <Link href="https://github.com/arpit2222" target="_blank" className="text-muted-foreground hover:text-white transition-colors">
+            <Github className="w-5 h-5" />
+          </Link>
+          <Link href="https://www.linkedin.com/in/arpit099/" target="_blank" className="text-muted-foreground hover:text-[#0A66C2] transition-colors">
+            <Linkedin className="w-5 h-5" />
+          </Link>
+          <Link href="https://x.com/Arpit39338561" target="_blank" className="text-muted-foreground hover:text-white transition-colors">
+            <Twitter className="w-5 h-5" />
+          </Link>
         </div>
       </div>
-    </nav>
+    </motion.header>
   );
 }

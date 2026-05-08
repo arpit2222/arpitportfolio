@@ -1,25 +1,26 @@
 "use client";
 
-import { ChevronUp } from 'lucide-react';
-import { Button } from './ui/button';
+import { Code2 } from "lucide-react";
+import Link from "next/link";
 
 export function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <footer className="w-full border-t border-white/5 bg-[#0a0510] py-8 relative">
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <p className="text-white/40 text-sm">© {new Date().getFullYear()} Dehix. All rights reserved.</p>
+    <footer className="border-t border-white/10 bg-background py-12 mt-20">
+      <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex items-center gap-2">
+          <Code2 className="text-primary w-6 h-6" />
+          <span className="font-bold text-lg tracking-tighter">Arpit.dev</span>
+        </div>
+        
+        <p className="text-muted-foreground text-sm text-center md:text-left">
+          © {new Date().getFullYear()} Arpit Chauhan. Building the future.
+        </p>
 
-        <Button
-          onClick={scrollToTop}
-          size="icon"
-          className="rounded-full bg-pink-500/20 hover:bg-pink-500/40 text-pink-400 absolute right-8 -top-5 w-10 h-10 border border-pink-500/30"
-        >
-          <ChevronUp className="h-5 w-5" />
-        </Button>
+        <div className="flex items-center gap-6 text-sm font-medium text-muted-foreground">
+          <Link href="mailto:arpitchauhan2468@gmail.com" className="hover:text-primary transition-colors">
+            arpitchauhan2468@gmail.com
+          </Link>
+        </div>
       </div>
     </footer>
   );

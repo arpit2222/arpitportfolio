@@ -1,22 +1,31 @@
-import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
-import { FeaturesSection } from "@/components/FeaturesSection";
-import { RoadmapSection } from "@/components/RoadmapSection";
-import { FAQSection } from "@/components/FAQSection";
+import { Navbar } from "@/components/Navbar";
+import { ExperienceSection } from "@/components/ExperienceSection";
+import { ProjectsSection } from "@/components/ProjectsSection";
+import { SkillsSection } from "@/components/SkillsSection";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col w-full">
+    <main className="flex min-h-screen flex-col w-full bg-background text-foreground relative selection:bg-primary/30">
       <Navbar />
-
-      <div className="flex-1 w-full pt-20">
+      
+      <div className="flex-1 w-full relative z-10">
         <HeroSection />
-        <FeaturesSection />
-        <RoadmapSection />
-        <FAQSection />
+        
+        <div className="border-t border-white/5 bg-background relative z-10">
+          <ExperienceSection />
+        </div>
+        
+        <div className="border-t border-white/5 bg-background relative z-10">
+          <ProjectsSection />
+        </div>
+        
+        <div className="border-t border-white/5 bg-background relative z-10">
+          <SkillsSection />
+        </div>
       </div>
-
+      
       <Footer />
     </main>
   );
