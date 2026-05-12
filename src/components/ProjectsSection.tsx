@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -44,7 +45,7 @@ export function ProjectsSection() {
       >
         <div>
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Notable Projects</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl">A selection of products and platforms I've built and shipped to production.</p>
+          <p className="text-muted-foreground text-lg max-w-2xl">A selection of products and platforms I&apos;ve built and shipped to production.</p>
         </div>
       </motion.div>
 
@@ -65,7 +66,7 @@ export function ProjectsSection() {
                     <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">{project.title}</h3>
                     <div className="flex items-center gap-3">
                       <a href="#" className="text-muted-foreground hover:text-white transition-colors">
-                        <Github className="w-5 h-5" />
+                        <FaGithub className="w-5 h-5" />
                       </a>
                       {project.link && (
                         <a href="#" className="text-muted-foreground hover:text-white transition-colors">

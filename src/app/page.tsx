@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { SkillsSection } from "@/components/SkillsSection";
+import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -23,6 +24,10 @@ export default function Home() {
         
         <div className="border-t border-white/5 bg-background relative z-10">
           <SkillsSection />
+        </div>
+        
+        <div className="border-t border-white/5 bg-background relative z-10">
+          <CTASection />
         </div>
       </div>
       

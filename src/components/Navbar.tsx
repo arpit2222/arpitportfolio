@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Code2 } from "lucide-react";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -38,13 +39,13 @@ export function Navbar() {
 
         <div className="flex items-center gap-4">
           <Link href="https://github.com/arpit2222" target="_blank" className="text-muted-foreground hover:text-white transition-colors">
-            <Github className="w-5 h-5" />
+            <FaGithub className="w-5 h-5" />
           </Link>
           <Link href="https://www.linkedin.com/in/arpit099/" target="_blank" className="text-muted-foreground hover:text-[#0A66C2] transition-colors">
-            <Linkedin className="w-5 h-5" />
+            <FaLinkedin className="w-5 h-5" />
           </Link>
           <Link href="https://x.com/Arpit39338561" target="_blank" className="text-muted-foreground hover:text-white transition-colors">
-            <Twitter className="w-5 h-5" />
+            <FaTwitter className="w-5 h-5" />
           </Link>
         </div>
       </div>
