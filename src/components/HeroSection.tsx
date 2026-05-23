@@ -1,75 +1,101 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Terminal } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
+      <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col justify-center h-full">
         
-        {/* Left Content */}
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col gap-6"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary w-fit text-sm font-medium">
-            <Terminal className="w-4 h-4" />
-            <span>Available for new opportunities</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-tight">
-            Building the <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500 glow-text-primary">
-              Web3 & AI
-            </span><br/>
-            Future.
-          </h1>
-          
-          <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed">
-            I&apos;m Arpit Chauhan, a Fullstack Blockchain Developer and Founder. I engineer scalable L1 blockchains, AI-driven SaaS products, and highly-performant web applications.
-          </p>
+        {/* Massive Typography */}
+        <div className="relative z-20 mix-blend-difference pointer-events-none mb-10">
+          <motion.h1 
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[12vw] md:text-[10vw] font-black tracking-tighter leading-[0.8] text-foreground uppercase mix-blend-difference"
+          >
+            ARPIT<br />CHAUHAN.
+          </motion.h1>
+        </div>
 
-          <div className="flex items-center gap-4 pt-4">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12">
-              View My Work
-            </Button>
-            <a href="https://calendly.com/arpitchauhan2468" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="rounded-full px-8 h-12 group border-white/10 hover:bg-white/5">
-                Let&apos;s Talk
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </a>
-          </div>
-        </motion.div>
+        <div className="flex flex-col md:flex-row justify-between items-end gap-12 w-full mt-auto pb-12 z-20">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-md"
+          >
+            <p className="text-xl md:text-2xl text-foreground font-medium uppercase tracking-widest mb-4">
+              [ AI / Web3 Architect ]
+            </p>
+            <p className="text-muted-foreground text-lg font-light leading-relaxed">
+              Engineering highly scalable decentralised infrastructure and orchestrating advanced AI systems for the next web.
+            </p>
+            <div className="mt-8 flex gap-4">
+              <a href="#projects">
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-8 h-14 font-bold uppercase tracking-wider text-sm transition-transform hover:-translate-y-1">
+                  View Index
+                </Button>
+              </a>
+              <a href="https://calendly.com/arpitchauhan2468" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline" className="rounded-none px-8 h-14 text-sm uppercase tracking-wider group border-border hover:bg-foreground hover:text-background transition-all">
+                  Contact
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
+          </motion.div>
+        </div>
 
-        {/* Right Content - Static Image */}
+        {/* Abstract Image Positioning - Behind Text */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative lg:ml-auto w-full max-w-md aspect-[4/5] rounded-2xl glass-card tech-border overflow-hidden group"
+          initial={{ opacity: 0, scale: 1.1, rotate: 5 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-[80vw] md:w-[45vw] h-[70vh] md:h-[85vh] z-0 pointer-events-none"
         >
-          <div className="absolute inset-0 z-10">
+          {/* Creative Masking */}
+          <div className="relative w-full h-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000" style={{ clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0% 100%)' }}>
             <Image 
               src="/hero-2.png" 
-              alt="Arpit Chauhan - Founder & Web3/AI Developer" 
+              alt="Arpit Chauhan" 
               fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="object-cover object-center"
               priority
             />
+            {/* Minimalist Overlay */}
+            <div className="absolute inset-0 bg-background/20" />
           </div>
-          
-          {/* Decorative tech grid overlay */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none z-20 mix-blend-overlay" />
-          
-          {/* Decorative glowing orb behind the image */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-primary/20 blur-[120px] rounded-full z-0 group-hover:bg-primary/30 transition-colors duration-700" />
         </motion.div>
+
+        {/* Scrolling Ticker (Brutalist touch) */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden border-t border-border py-4 bg-background z-30">
+          <div className="flex whitespace-nowrap animate-marquee">
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-muted-foreground">System Architecture</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-primary">•</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-muted-foreground">Smart Contracts</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-primary">•</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-muted-foreground">LLM Orchestration</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-primary">•</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-muted-foreground">L1 Consensus</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-primary">•</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-muted-foreground">React Optimization</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-primary">•</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-muted-foreground">System Architecture</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-primary">•</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-muted-foreground">Smart Contracts</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-primary">•</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-muted-foreground">LLM Orchestration</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-primary">•</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-muted-foreground">L1 Consensus</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-primary">•</span>
+            <span className="text-sm font-mono tracking-widest uppercase mx-8 text-muted-foreground">React Optimization</span>
+          </div>
+        </div>
 
       </div>
     </section>

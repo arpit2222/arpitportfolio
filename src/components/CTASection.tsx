@@ -2,50 +2,58 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 export function CTASection() {
   return (
-    <section className="container mx-auto px-6 md:px-12 py-24">
-      <div className="glass-card tech-border rounded-3xl overflow-hidden relative p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-12">
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="flex-1 relative z-10"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-balance">
-            Ready to build the <span className="text-primary glow-text-primary">next big thing?</span>
-          </h2>
-          <p className="text-muted-foreground text-lg mb-8 max-w-md leading-relaxed">
-            Whether you need a scalable Web3 architecture, a cutting-edge AI integration, or a premium web application, let&apos;s connect and make it happen.
-          </p>
-          <a href="https://calendly.com/arpitchauhan2468" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12 group mt-4">
-              Start a Conversation
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </a>
-        </motion.div>
-
+    <section className="py-32 md:py-48 bg-[#0A2F1D] border-t border-border relative overflow-hidden">
+      <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center justify-center text-center">
+        
+        {/* Massive Let's Build Typography */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="w-full md:w-[400px] aspect-square relative rounded-2xl overflow-hidden border border-white/10 group"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="relative w-full flex justify-center mb-16"
         >
-          <Image 
-            src="/hero-3.png" 
-            alt="Let's build together" 
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-primary/20 mix-blend-overlay group-hover:bg-transparent transition-colors duration-500" />
+          <h2 className="text-[15vw] leading-none font-black uppercase tracking-tighter z-20 text-white">
+            LET&apos;S<br/>BUILD.
+          </h2>
+          
+          {/* Restored Hero 3 Image with geometric mask */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] md:w-[30vw] aspect-[4/5] z-10 opacity-80 pointer-events-none grayscale hover:grayscale-0 transition-all duration-1000" style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}>
+            <Image 
+              src="/hero-3.png" 
+              alt="Let's build together" 
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-primary/20 mix-blend-overlay" />
+          </div>
         </motion.div>
-        
-        {/* Background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[120px] rounded-full z-0 pointer-events-none" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="flex flex-col items-center gap-8 relative z-30 mt-8"
+        >
+          <p className="text-xl md:text-2xl text-white/80 font-medium max-w-xl">
+            Ready to architect the next generation of decentralized infrastructure or AI integration?
+          </p>
+          
+          <a href="https://calendly.com/arpitchauhan2468" target="_blank" rel="noopener noreferrer" className="group">
+            <div className="flex items-center gap-4 border-b-4 border-white/50 pb-2 px-4 hover:border-white transition-colors cursor-pointer">
+              <span className="text-2xl md:text-4xl font-bold uppercase tracking-tight text-white transition-colors">
+                Start a Conversation
+              </span>
+              <ArrowRight className="w-8 h-8 text-white group-hover:translate-x-2 transition-all" />
+            </div>
+          </a>
+        </motion.div>
+
       </div>
     </section>
   );

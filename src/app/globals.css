@@ -8,76 +8,72 @@
   .text-balance {
     text-wrap: balance;
   }
-  .glass-card {
-    @apply bg-black/40 border border-white/5 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)];
-  }
-  .glow-text-primary {
-    text-shadow: 0 0 20px oklch(0.7 0.2 200 / 60%); /* Cyan neon glow */
+  .clip-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
   }
 }
 
 @layer base {
   .theme {
-    --font-heading: var(--font-sans);
+    --font-heading: var(--font-heading);
     --font-sans: var(--font-sans);
   }
   
   :root {
-    /* We only care about dark mode for this premium portfolio */
-    --background: oklch(0.12 0.02 285); /* Deep obsidian blue/black */
-    --foreground: oklch(0.98 0 0); /* Pure white text */
+    --background: oklch(0.98 0 0); /* Off-white */
+    --foreground: oklch(0.1 0 0); /* Black */
     
-    --card: oklch(0.15 0.03 285);
-    --card-foreground: oklch(0.98 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.1 0 0);
     
-    --popover: oklch(0.15 0.03 285);
-    --popover-foreground: oklch(0.98 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.1 0 0);
     
-    --primary: oklch(0.7 0.2 200); /* Neon Cyan */
-    --primary-foreground: oklch(0.1 0.02 260);
+    --primary: oklch(0.9 0.25 140); /* Electric Lime #CCFF00 */
+    --primary-foreground: oklch(0.1 0 0);
     
-    --secondary: oklch(0.25 0.05 285);
-    --secondary-foreground: oklch(0.98 0 0);
+    --secondary: oklch(0.9 0 0);
+    --secondary-foreground: oklch(0.1 0 0);
     
-    --muted: oklch(0.20 0.03 285);
-    --muted-foreground: oklch(0.7 0 0);
+    --muted: oklch(0.9 0 0);
+    --muted-foreground: oklch(0.5 0 0);
     
-    --accent: oklch(0.25 0.05 285);
-    --accent-foreground: oklch(0.98 0 0);
+    --accent: oklch(0.9 0.25 140);
+    --accent-foreground: oklch(0.1 0 0);
     
     --destructive: oklch(0.6 0.2 20);
-    --border: oklch(0.25 0.03 285);
-    --input: oklch(0.25 0.03 285);
-    --ring: oklch(0.65 0.25 320);
-    --radius: 0.75rem;
+    --border: oklch(0.8 0 0);
+    --input: oklch(0.8 0 0);
+    --ring: oklch(0.1 0 0);
+    --radius: 0rem; /* Brutalism: no radius */
   }
 
   .dark {
-    --background: oklch(0.12 0.02 260); /* Deeper tech blue-black */
-    --foreground: oklch(0.98 0 0);
+    --background: oklch(0.12 0 0); /* Deep charcoal, almost black */
+    --foreground: oklch(0.95 0 0); /* Off white */
     
-    --card: oklch(0.15 0.03 260);
-    --card-foreground: oklch(0.98 0 0);
+    --card: oklch(0.15 0 0);
+    --card-foreground: oklch(0.95 0 0);
     
-    --popover: oklch(0.15 0.03 260);
-    --popover-foreground: oklch(0.98 0 0);
+    --popover: oklch(0.15 0 0);
+    --popover-foreground: oklch(0.95 0 0);
     
-    --primary: oklch(0.7 0.2 200); /* Cyan/Neon Blue for techie look */
-    --primary-foreground: oklch(0.1 0.02 260);
+    --primary: oklch(0.9 0.25 140); /* Electric Lime */
+    --primary-foreground: oklch(0.1 0 0); /* Black text on primary */
     
-    --secondary: oklch(0.2 0.05 260);
-    --secondary-foreground: oklch(0.98 0 0);
+    --secondary: oklch(0.2 0 0);
+    --secondary-foreground: oklch(0.95 0 0);
     
-    --muted: oklch(0.18 0.03 260);
-    --muted-foreground: oklch(0.7 0.02 260);
+    --muted: oklch(0.2 0 0);
+    --muted-foreground: oklch(0.6 0 0);
     
-    --accent: oklch(0.65 0.25 320); /* Neon Pink/Magenta accent */
-    --accent-foreground: oklch(0.98 0 0);
+    --accent: oklch(0.9 0.25 140);
+    --accent-foreground: oklch(0.1 0 0);
     
     --destructive: oklch(0.6 0.2 20);
-    --border: oklch(0.22 0.03 260);
-    --input: oklch(0.22 0.03 260);
-    --ring: oklch(0.7 0.2 200);
+    --border: oklch(0.25 0 0);
+    --input: oklch(0.25 0 0);
+    --ring: oklch(0.9 0.25 140);
   }
 
   * {
@@ -86,37 +82,43 @@
   
   body {
     @apply bg-background text-foreground;
-    /* High-tech grid pattern and radial glow */
-    background-color: oklch(0.10 0.02 260);
-    background-image: 
-      radial-gradient(circle at top right, oklch(0.7 0.2 200 / 15%) 0%, transparent 40%),
-      radial-gradient(circle at bottom left, oklch(0.65 0.25 320 / 15%) 0%, transparent 40%),
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
-    background-attachment: fixed;
-    background-position: center center;
+    background-color: var(--background);
+    /* Remove the neon glow backgrounds for a stark minimal look */
+    background-image: none;
   }
   
   html {
     @apply font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+  
+  /* Lenis smooth scroll recommended styles */
+  html.lenis {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
   }
 }
 
 @layer utilities {
   .tech-border {
     position: relative;
+    border: 1px solid var(--border);
   }
   .tech-border::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, oklch(0.7 0.2 200 / 50%), oklch(0.65 0.25 320 / 50%));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+    display: none; /* Disable the old glowing border */
   }
 }

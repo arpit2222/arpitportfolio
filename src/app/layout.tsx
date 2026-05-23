@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import { cn } from "@/lib/utils";
+import SmoothScroll from "@/components/SmoothScroll";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-heading' });
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,8 +20,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Arpit Chauhan | Web3 & AI Developer",
-  description: "Portfolio of Arpit Chauhan, Fullstack Web3 & AI Developer and Founder.",
+  title: "Arpit Chauhan",
+  description: "Web3 & AI Architecture. Selected Works.",
 };
 
 export default function RootLayout({
@@ -28,11 +30,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("dark scroll-smooth font-sans", inter.variable)}>
+    <html lang="en" className={cn("dark font-sans", inter.variable, spaceGrotesk.variable)}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground min-h-screen`}
       >
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );
