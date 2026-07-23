@@ -44,7 +44,7 @@ export function CTASection() {
             Ready to architect the next generation of decentralized infrastructure or AI integration?
           </p>
           
-          <a href="https://calendly.com/arpitchauhan2468" target="_blank" rel="noopener noreferrer" className="group">
+          <a href="https://calendly.com/arpit_info/" target="_blank" rel="noopener noreferrer" className="group">
             <div className="flex items-center gap-4 border-b-4 border-white/50 pb-2 px-4 hover:border-white transition-colors cursor-pointer">
               <span className="text-2xl md:text-4xl font-bold uppercase tracking-tight text-white transition-colors">
                 Start a Conversation
