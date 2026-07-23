@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[100svh] flex flex-col overflow-hidden bg-background">
-      <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col justify-start pt-32 md:pt-0 md:justify-center h-full flex-1">
+    <section className="relative min-h-[100svh] flex items-start pt-32 md:items-center md:pt-16 overflow-hidden bg-background">
+      <div className="container mx-auto px-6 md:px-12 relative z-10 w-full">
         
         {/* Massive Typography */}
         <div className="relative z-20 mix-blend-difference pointer-events-none mb-10">
@@ -22,7 +22,7 @@ export function HeroSection() {
           </motion.h1>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-end gap-12 w-full mt-auto pb-12 z-20">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 w-full pb-12 z-20">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
