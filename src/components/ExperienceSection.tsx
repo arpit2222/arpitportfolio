@@ -40,7 +40,7 @@ export function ExperienceSection() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6"
+              className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6 break-words"
             >
               Timeline
             </motion.h2>

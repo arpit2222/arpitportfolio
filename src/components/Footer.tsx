@@ -17,8 +17,8 @@ export function Footer() {
         </p>
 
         <div className="flex items-center gap-6 text-sm font-medium text-muted-foreground">
-          <Link href="mailto:arpitchauhan2468@gmail.com" className="hover:text-primary transition-colors">
-            arpitchauhan2468@gmail.com
+          <Link href="mailto:arpit@dehix.org" className="hover:text-primary transition-colors">
+            arpit@dehix.org
           </Link>
         </div>
       </div>

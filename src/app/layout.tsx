@@ -31,6 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("dark font-sans", inter.variable, spaceGrotesk.variable)}>
+      <head>
+        {/* Pixel Code - https://analytics.techisfuture.com/ */}
+        <script defer src="https://analytics.techisfuture.com/pixel/AazcZ24LkEiaWoR9"></script>
+        {/* END Pixel Code */}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground min-h-screen`}
       >

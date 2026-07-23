@@ -32,7 +32,7 @@ export function SkillsSection() {
           transition={{ duration: 0.8 }}
           className="mb-24 flex flex-col md:flex-row justify-between items-end gap-8"
         >
-          <h2 className="text-5xl md:text-[7vw] font-black uppercase leading-none tracking-tighter">
+          <h2 className="text-5xl md:text-[7vw] font-black uppercase leading-none tracking-tighter break-words">
             Technological<br/>Arsenal
           </h2>
           <p className="text-xl font-mono uppercase text-background/60 max-w-sm mb-2 md:mb-4">

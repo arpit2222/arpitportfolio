@@ -16,7 +16,7 @@ export function HeroSection() {
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[12vw] md:text-[10vw] font-black tracking-tighter leading-[0.8] text-foreground uppercase mix-blend-difference"
+            className="text-[12vw] md:text-[10vw] font-black tracking-tighter leading-[0.8] text-foreground uppercase mix-blend-difference break-words"
           >
             ARPIT<br />CHAUHAN.
           </motion.h1>
@@ -41,7 +41,7 @@ export function HeroSection() {
                   View Index
                 </Button>
               </a>
-              <a href="https://calendly.com/arpitchauhan2468" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/arpit2222/arpitportfolio" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="outline" className="rounded-none px-8 h-14 text-sm uppercase tracking-wider group border-border hover:bg-foreground hover:text-background transition-all">
                   Contact
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

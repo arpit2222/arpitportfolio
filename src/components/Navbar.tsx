@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2 } from "lucide-react";
+import { Code2, Menu, X } from "lucide-react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,8 +48,26 @@ export function Navbar() {
           <Link href="https://x.com/Arpit39338561" target="_blank" className="text-muted-foreground hover:text-white transition-colors">
             <FaTwitter className="w-5 h-5" />
           </Link>
+          <button 
+            className="md:hidden text-foreground ml-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
       </div>
+
+      {mobileMenuOpen && (
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border py-6 px-6 flex flex-col gap-6 shadow-xl"
+        >
+          <Link href="#experience" className="text-lg font-medium hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Experience</Link>
+          <Link href="#projects" className="text-lg font-medium hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Projects</Link>
+          <Link href="#skills" className="text-lg font-medium hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Skills</Link>
+        </motion.div>
+      )}
     </motion.header>
   );
 }

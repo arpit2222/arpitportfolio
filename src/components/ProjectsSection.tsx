@@ -1,40 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-
-const projects = [
-  {
-    title: "Ghostpool",
-    category: "Web3 / Decentralized",
-    description: "An innovative decentralized platform providing seamless cross-chain liquidity pooling and high-yield staking mechanisms.",
-    year: "2024",
-    link: "https://ghostpool.com"
-  },
-  {
-    title: "LexCrypt",
-    category: "AI / Legal Tech",
-    description: "Advanced AI-driven legal document analysis tool, leveraging state-of-the-art LLMs to automate contract review.",
-    year: "2023",
-    link: "#"
-  },
-  {
-    title: "Nexus Protocol",
-    category: "Blockchain Architecture",
-    description: "High-throughput Layer 1 infrastructure designed for ultra-low latency DeFi applications.",
-    year: "2023",
-    link: "#"
-  },
-  {
-    title: "Aura Vision",
-    category: "Computer Vision",
-    description: "Real-time generative AI pipeline for video processing, used by top-tier creative agencies.",
-    year: "2022",
-    link: "#"
-  }
-];
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { projects } from "@/data/projects";
 
 export function ProjectsSection() {
+  const displayProjects = projects.slice(0, 4);
   return (
     <section id="projects" className="py-32 bg-background border-t border-border relative">
       <div className="container mx-auto px-6 md:px-12">
@@ -53,42 +26,78 @@ export function ProjectsSection() {
           </p>
         </div>
 
-        <div className="flex flex-col border-t border-border">
-          {projects.map((project, index) => (
-            <motion.a
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-border pt-12">
+          {displayProjects.map((project, index) => (
+            <motion.div
               key={index}
-              href={project.link}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: index * 0.1, duration: 0.8 }}
-              className="group block border-b border-border py-12 md:py-16 relative overflow-hidden"
+              className="group flex flex-col border border-border p-8 md:p-12 relative overflow-hidden bg-background hover:bg-foreground transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
-              <div className="absolute inset-0 bg-foreground scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] z-0" />
-              
-              <div className="relative z-10 flex flex-col md:flex-row justify-between md:items-center gap-8 w-full">
-                <div className="flex-1 flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
-                  <span className="font-mono text-sm text-muted-foreground group-hover:text-background/60 transition-colors">0{index + 1}</span>
-                  <h3 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-foreground group-hover:text-background transition-colors duration-500">
+              <div className="relative z-10 flex flex-col h-full justify-between gap-8">
+                <div>
+                  <div className="flex justify-between items-start mb-6">
+                    <span className="font-mono text-sm text-muted-foreground group-hover:text-background/60 transition-colors">0{index + 1}</span>
+                    <span className="text-primary font-mono text-sm uppercase tracking-widest text-right">{project.category}</span>
+                  </div>
+                  
+                  <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-foreground group-hover:text-background transition-colors duration-500 break-words mb-6">
                     {project.title}
                   </h3>
+                  
+                  <p className="text-muted-foreground group-hover:text-background/80 transition-colors text-lg leading-relaxed">
+                    {project.description}
+                  </p>
                 </div>
                 
-                <div className="flex flex-col md:items-end gap-2 md:max-w-xs">
-                  <span className="text-primary font-mono text-sm uppercase tracking-widest">{project.category}</span>
-                  <span className="text-muted-foreground group-hover:text-background/80 transition-colors hidden md:block text-right line-clamp-2">
-                    {project.description}
-                  </span>
-                </div>
-
-                <div className="md:ml-8 mt-4 md:mt-0">
-                  <div className="w-16 h-16 rounded-full border border-border group-hover:border-background flex items-center justify-center text-foreground group-hover:text-background group-hover:bg-primary group-hover:border-primary transition-all duration-500 transform group-hover:rotate-45">
-                    <ArrowUpRight className="w-8 h-8" />
-                  </div>
+                <div className="flex flex-wrap gap-3 mt-8">
+                  {project.extraLinks ? (
+                    project.extraLinks.map((link, i) => (
+                      <a 
+                        key={i} 
+                        href={link.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="font-mono text-xs uppercase tracking-wider px-4 py-2 border border-border text-foreground group-hover:border-background/30 group-hover:text-background hover:!bg-primary hover:!border-primary hover:!text-primary-foreground transition-all"
+                      >
+                        {link.label}
+                      </a>
+                    ))
+                  ) : (
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="font-mono text-xs uppercase tracking-wider px-4 py-2 border border-border text-foreground group-hover:border-background/30 group-hover:text-background hover:!bg-primary hover:!border-primary hover:!text-primary-foreground transition-all"
+                    >
+                      View Project
+                    </a>
+                  )}
+                  {project.github && (
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="font-mono text-xs uppercase tracking-wider px-4 py-2 border border-border text-foreground group-hover:border-background/30 group-hover:text-background hover:!bg-primary hover:!border-primary hover:!text-primary-foreground transition-all"
+                    >
+                      GitHub
+                    </a>
+                  )}
                 </div>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
+        </div>
+
+        <div className="mt-16 flex justify-center">
+          <Link href="/projects">
+            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-8 h-14 font-bold uppercase tracking-wider text-sm transition-transform hover:-translate-y-1 group">
+              View All Works
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
