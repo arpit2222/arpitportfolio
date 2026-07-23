@@ -23,7 +23,7 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "glass-card py-4" : "bg-transparent py-6"
+        scrolled ? "bg-background/95 backdrop-blur-md border-b border-border py-4 shadow-sm" : "bg-transparent py-6"
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
