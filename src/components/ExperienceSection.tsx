@@ -4,28 +4,46 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
-    role: "Founder & Lead Architect",
-    company: "Ghostpool",
-    period: "2023 - Present",
-    description: "Architected and deployed a multi-chain liquidity protocol processing $50M+ in monthly volume. Led a team of 8 senior engineers building smart contracts in Solidity and Go."
+    role: "Visiting Faculty Member",
+    company: "Bower School",
+    period: "Jul 2026 - Present",
+    description: ""
   },
   {
-    role: "Senior AI Engineer",
-    company: "LexCrypt",
-    period: "2021 - 2023",
-    description: "Spearheaded the integration of custom LLMs for legal document analysis. Reduced processing time by 80% and improved accuracy through advanced RAG architectures."
+    role: "Co-Founder",
+    company: "Dehix",
+    period: "Apr 2024 - Present",
+    description: "Dehix is a decentralised freelance platform where we are trying to solve the problem came up with the Decentralised work culture using decentralised technology. Tech Stack: React.js, Node.js and more."
   },
   {
-    role: "Fullstack Architect",
-    company: "Nexus Protocol",
-    period: "2018 - 2021",
-    description: "Designed enterprise-grade microservices and optimized high-frequency trading data pipelines using Node.js, Redis, and React."
+    role: "Technical Consultant",
+    company: "Tapovan AI",
+    period: "Apr 2025 - Jul 2025",
+    description: "Working and understanding on multiple subnets. Setting up miners, working towards creating new subnets."
   },
   {
-    role: "Software Engineer",
-    company: "Tech Innovations Inc",
-    period: "2015 - 2018",
-    description: "Developed and maintained core web applications using early React.js and RESTful APIs, scaling the platform to handle 1M+ daily active users."
+    role: "Technical Consultant",
+    company: "SPLIT Chennai",
+    period: "Feb 2024 - Dec 2024",
+    description: "Working as technical consultant for Sweden based person employment compatibility assessment system, which is used by most of the Swedish organisations. Main tech stack here is React and frontend related packages."
+  },
+  {
+    role: "Technical Co-founder",
+    company: "D Frame Foundation",
+    period: "Jun 2022 - Apr 2024",
+    description: "Dframe is base-data layer project where we are collecting user data while monetizing the user and create whole data pool for upcoming project using the web3 technology. Tech Stack: CSS, MongoDB and more."
+  },
+  {
+    role: "Blockchain Developer",
+    company: "Mahadev Blockchain Platform [mDev]",
+    period: "Apr 2022 - Jul 2023",
+    description: "mDev was a layer 1 Blockchain project trying to create mobile devices compatible Blockchains. As a Blockchain engineer, my role was the implementation of this layer 1 using Golang, taking inspiration from Ethereum."
+  },
+  {
+    role: "Frontend Developer",
+    company: "Make My Energy",
+    period: "Dec 2022 - May 2023",
+    description: "Australian startup project focused on solar energy. Requirement was to create a lead generation platform. Worked as frontend lead dealing with complex user inputs for tax benefits and subsidies."
   }
 ];
 
