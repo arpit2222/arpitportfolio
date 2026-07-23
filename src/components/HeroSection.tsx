@@ -56,7 +56,7 @@ export function HeroSection() {
           initial={{ opacity: 0, scale: 1.1, rotate: 5 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute right-0 top-[65%] md:top-1/2 -translate-y-1/2 w-[100vw] md:w-[45vw] h-[60vh] md:h-[85vh] z-0 pointer-events-none"
+          className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[45vw] h-[85vh] z-0 pointer-events-none"
         >
           {/* Creative Masking */}
           <div className="relative w-full h-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000" style={{ clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0% 100%)' }}>
