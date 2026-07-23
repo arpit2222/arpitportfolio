@@ -56,7 +56,7 @@ export function HeroSection() {
           initial={{ opacity: 0, scale: 1.1, rotate: 5 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute right-0 top-[60%] md:top-1/2 -translate-y-1/2 w-[90vw] md:w-[45vw] h-[50vh] md:h-[85vh] z-0 pointer-events-none opacity-20 md:opacity-100"
+          className="absolute right-0 top-[65%] md:top-1/2 -translate-y-1/2 w-[100vw] md:w-[45vw] h-[60vh] md:h-[85vh] z-0 pointer-events-none"
         >
           {/* Creative Masking */}
           <div className="relative w-full h-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000" style={{ clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0% 100%)' }}>
@@ -67,8 +67,8 @@ export function HeroSection() {
               className="object-cover object-center"
               priority
             />
-            {/* Minimalist Overlay */}
-            <div className="absolute inset-0 bg-background/20" />
+            {/* Minimalist Overlay - Darker on mobile for text legibility */}
+            <div className="absolute inset-0 bg-background/90 md:bg-background/20" />
           </div>
         </motion.div>
 
